@@ -11,4 +11,4 @@
 
   roles:
     - role: geerlingguy.java
-    - role: geerlingguy.elasticsearch
+    - role: jtprog.install_elasticsearch
