@@ -6,6 +6,7 @@ name: CI
     branches:
       - develop
 
+
 defaults:
   run:
     working-directory: 'jtprog.install_elasticsearch'
@@ -26,21 +27,13 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Upgrade pip3.
-        run: pip3 install --upgrade pip
-
       - name: Install test dependencies.
-        run: pip3 install yamllint ansible-lint ansible
+        run: pip3 install yamllint ansible-lint
 
-      - name: Install ansible requirements.
-        run: ansible-galaxy install -r molecule/default/requirements.yml
-
-      - name: Lint code with yamllint.
-        run: yamllint -c .yamllint .
-
-      - name: Lint code with ansible-lint.
-        run: ansible-lint
-
+      - name: Lint code.
+        run: |
+          yamllint .
+          ansible-lint
   molecule:
     name: Molecule
     runs-on: ubuntu-latest
@@ -48,10 +41,7 @@ jobs:
       matrix:
         distro:
           - centos7
-          - debian9
-          - debian10
           - ubuntu1804
-          - ubuntu2004
 
     steps:
       - name: Check out the codebase.
@@ -64,14 +54,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Upgrade pip3.
-        run: pip3 install --upgrade pip
-
       - name: Install test dependencies.
         run: pip3 install ansible molecule[docker] docker
-
-      - name: Install ansible requirements.
-        run: ansible-galaxy install -r molecule/default/requirements.yml
 
       - name: Run Molecule tests.
         run: molecule test
