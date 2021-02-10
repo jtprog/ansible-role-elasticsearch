@@ -32,6 +32,9 @@ jobs:
       - name: Install test dependencies.
         run: pip3 install yamllint ansible-lint ansible
 
+      - name: Install ansible requirements.
+        run: ansible-galaxy install -r molecule/default/requirements.yml
+
       - name: Lint code with yamllint.
         run: yamllint -c .yamllint .
 
