@@ -4,29 +4,30 @@ name: CI
   pull_request:
   push:
     branches:
-      - master
-  schedule:
-    - cron: "30 4 * * 1"
+      - develop
 
 defaults:
   run:
-    working-directory: 'geerlingguy.elasticsearch'
+    working-directory: 'jtprog.install_elasticsearch'
 
 jobs:
 
   lint:
     name: Lint
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'geerlingguy.elasticsearch'
+          path: 'jtprog.install_elasticsearch'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
+
+      - name: Upgrade pip3.
+        run: pip3 install --upgrade pip
 
       - name: Install test dependencies.
         run: pip3 install yamllint ansible-lint
@@ -42,19 +43,25 @@ jobs:
     strategy:
       matrix:
         distro:
-          - centos7
+          - ubuntu2004
           - ubuntu1804
+          - debian10
+          - debian9
+          - centos7
 
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'geerlingguy.elasticsearch'
+          path: 'jtprog.install_elasticsearch'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
+
+      - name: Upgrade pip3.
+        run: pip3 install --upgrade pip
 
       - name: Install test dependencies.
         run: pip3 install ansible molecule[docker] docker

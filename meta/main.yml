@@ -1,29 +1,32 @@
 ---
-dependencies: []
-
 galaxy_info:
-  role_name: elasticsearch
-  author: geerlingguy
-  description: Elasticsearch for Linux.
-  company: "Midwestern Mac, LLC"
-  license: "license (BSD, MIT)"
-  min_ansible_version: 2.4
+  role_name: install_elasticsearch
+  author: Mihael Savin
+  description: Ansible role for install Elasticsearch
+  company: SysOps
+
+  license: WTFPL
+
+  min_ansible_version: 2.9
+
   platforms:
-    - name: EL
-      versions:
-        - all
-    - name: Debian
-      versions:
-        - all
     - name: Ubuntu
       versions:
-        - all
+        - bionic
+        - focal
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+    - name: EL
+      version:
+        - 7
+        - 8
+
   galaxy_tags:
-    - web
-    - system
-    - monitoring
-    - logging
-    - lucene
-    - elk
-    - efk
+    - configuration
     - elasticsearch
+    - install
+
+dependencies:
+  - geerlingguy.java
