@@ -1,6 +1,6 @@
 # jtprog.install_elasticsearch
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprog/ansible-role-install-base-soft/CI?label=CI) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprog/ansible-role-install-base-soft/Release?label=Release) ![GitHub](https://img.shields.io/github/license/jtprog/ansible-role-install-base-soft)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprog/ansible-role-install-elasticsearch/CI?label=CI) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprog/ansible-role-install-elasticsearch/Release?label=Release) ![GitHub](https://img.shields.io/github/license/jtprog/ansible-role-install-elasticsearch)
 
 An Ansible Role that installs Elasticsearch on RedHat/CentOS or Debian/Ubuntu.
 
