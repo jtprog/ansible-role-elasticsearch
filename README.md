@@ -1,6 +1,6 @@
-# jtprog.install_elasticsearch
+# jtprogru.install_elasticsearch
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprog/ansible-role-elasticsearch/CI?label=CI) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprog/ansible-role-elasticsearch/Release?label=Release) ![GitHub](https://img.shields.io/github/license/jtprog/ansible-role-elasticsearch)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprogru/ansible-role-elasticsearch/CI?label=CI) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprogru/ansible-role-elasticsearch/Release?label=Release) ![GitHub](https://img.shields.io/github/license/jtprogru/ansible-role-elasticsearch)
 
 An Ansible Role that installs Elasticsearch on RedHat/CentOS or Debian/Ubuntu.
 
@@ -82,7 +82,7 @@ Requires at least Java 8. You can use the [`geerlingguy.java`](https://github.co
 
   roles:
     - geerlingguy.java
-    - jtprog.install_elasticsearch
+    - jtprogru.install_elasticsearch
 ```
 ## License
 
