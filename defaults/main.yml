@@ -11,4 +11,18 @@ elasticsearch_http_port: 9200
 elasticsearch_heap_size_min: 1g
 elasticsearch_heap_size_max: 2g
 
-elasticsearch_extra_options: ''
+elasticsearch_cluster_name: test-cluster
+
+elasticsearch_extra_options: |
+  node.ml: false
+  xpack.ml.enabled: true
+  node.master: false
+  node.data: false
+  node.ingest: true
+  discovery.zen.ping.unicast.hosts: [ {%for host in groups['elks']%}"{{ hostvars[host].ansible_eth1.ipv4.address }}"{% if not loop.last %}, {% endif %}{% endfor %} ]
+  cluster.initial_master_nodes: [ {%for host in groups['elks']%}"{{ hostvars[host].ansible_eth1.ipv4.address }}"{% if not loop.last %}, {% endif %}{% endfor %} ]
+  discovery.zen.minimum_master_nodes: 2
+  node.name: {{ inventory_hostname }}
+  cluster.name: {{ elasticsearch_cluster_name }}
+  network.publish_host: {{ inventory_hostname }}
+
